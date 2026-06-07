@@ -20,3 +20,10 @@ app.use(router)
 app.use(ElementPlus, { locale: zhCn })
 
 app.mount('#app')
+
+// 初始化数据持久化 (仅在 Tauri 环境中)
+if (window.__TAURI__) {
+  import('@/utils/storage').then(({ initPersistence }) => {
+    initPersistence().catch(console.error)
+  })
+}

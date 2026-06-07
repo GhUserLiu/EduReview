@@ -8,3 +8,7 @@ declare module 'element-plus/dist/locale/zh-cn.mjs' {
   const zhCn: any
   export default zhCn
 }
+
+interface Window {
+  __TAURI__?: boolean
+}

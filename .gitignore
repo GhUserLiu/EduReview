@@ -27,3 +27,6 @@ Thumbs.db
 # Screenshots
 *.png
 node_modules
+
+# Tauri build output
+src-tauri/target/
