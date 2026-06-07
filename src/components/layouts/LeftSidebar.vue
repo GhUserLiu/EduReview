@@ -42,7 +42,7 @@
       </el-menu-item>
     </el-menu>
     <div class="sidebar-footer">
-      <el-button type="info" plain @click="handleLogout">
+      <el-button type="danger" class="logout-btn" @click="handleLogout">
         <el-icon><SwitchButton /></el-icon>
         <span>退出登录</span>
       </el-button>
@@ -52,15 +52,32 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
-import { ElMessage } from 'element-plus'
+import { useRoute, useRouter } from 'vue-router'
+import { ElMessage, ElMessageBox } from 'element-plus'
 
 const route = useRoute()
+const router = useRouter()
 
 const activeMenu = computed(() => route.path)
 
-const handleLogout = () => {
-  ElMessage.info('退出登录功能待实现')
+const handleLogout = async () => {
+  try {
+    await ElMessageBox.confirm(
+      '确定要退出登录吗？',
+      '退出确认',
+      {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning',
+        confirmButtonClass: 'el-button--danger'
+      }
+    )
+    ElMessage.success('已退出登录')
+    // 这里可以添加清除登录状态的逻辑
+    // router.push('/login')
+  } catch {
+    // 用户取消
+  }
 }
 </script>
 
@@ -139,20 +156,34 @@ const handleLogout = () => {
 .sidebar-footer {
   padding: 16px;
   border-top: 1px solid $border-color;
+  background: linear-gradient(to top, rgba(30, 58, 138, 0.3), transparent);
 
-  .el-button {
+  .logout-btn {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    height: 44px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    background: rgba(239, 68, 68, 0.15);
+    color: #FCA5A5;
+    transition: all 0.3s ease;
 
     .el-icon {
       font-size: 16px;
     }
 
-    span {
-      font-size: 14px;
+    &:hover {
+      background: rgba(239, 68, 68, 0.25);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
     }
   }
 }
