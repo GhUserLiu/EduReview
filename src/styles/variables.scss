@@ -1,0 +1,43 @@
+// 教学评价系统 - 颜色变量（基于参考图片）
+
+// 主背景色 - 深蓝色
+$bg-primary: #0A192F;
+$bg-secondary: #1E3A8A;
+$bg-tertiary: #0f2744;
+
+// 卡片背景
+$bg-card: rgba(30, 58, 138, 0.6);
+$bg-card-hover: rgba(30, 58, 138, 0.8);
+
+// 强调色（用于图表）
+$accent-cyan: #06B6D4;
+$accent-blue: #3B82F6;
+$accent-orange: #F97316;
+$accent-yellow: #FCD34D;
+$accent-green: #22C55E;
+$accent-red: #EF4444;
+
+// 文字颜色
+$text-primary: #FFFFFF;
+$text-secondary: #E5E7EB;
+$text-muted: #9CA3AF;
+
+// 边框和分割线
+$border-color: rgba(255, 255, 255, 0.1);
+$border-hover: rgba(255, 255, 255, 0.2);
+
+// 评分等级颜色
+$grade-excellent: #F97316;  // 优秀 - 橙色
+$grade-good: #FCD34D;       // 良好 - 黄色
+$grade-pass: #9CA3AF;        // 合格 - 灰色
+$grade-fail: #4B5563;        // 不合格 - 深灰
+
+// 阴影
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+// 尺寸
+$sidebar-width: 220px;
+$card-radius: 12px;
+$transition: all 0.3s ease;
